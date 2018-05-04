@@ -28,7 +28,7 @@
     pull: true
     image: "{{ image_name }}:{{ image_tag }}"
     published_ports:
-      - "{{ exposed_port_int }}:{{ exposed_port_ext }}"
+      - "{{ ansible_default_ipv4 }}:{{ exposed_port_int }}:{{ exposed_port_ext }}"
     volumes:
       - "{{ cfg_volume }}"
       - "{{ log_volume }}"
