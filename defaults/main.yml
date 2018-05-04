@@ -10,6 +10,6 @@ restart_if: always
 def_user: proxy
 def_password: looPa9kuo9oohuog6moolo
 
-mount_volumes: true
+mount_volumes: false
 cfg_volume: /etc/3proxy.cfg:/3proxy.cfg
 log_volume: /var/log/:/var/log/
