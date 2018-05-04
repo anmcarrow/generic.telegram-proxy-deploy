@@ -14,8 +14,8 @@
     published_ports:
       - "{{ exposed_port_int }}:{{ exposed_port_ext }}"
     env:
-      - USER: "{{ def_user }}"
-      - PASSWORD: "{{ def_password }}"
+      USER: "{{ def_user }}"
+      PASSWORD: "{{ def_password }}"
   when: not mount_volumes
   tags: 3proxy
 
@@ -32,8 +32,5 @@
     volumes:
       - "{{ cfg_volume }}"
       - "{{ log_volume }}"
-    env:
-      - USER: "{{ def_user }}"
-      - PASSWORD: "{{ def_password }}"
   when: mount_volumes
   tags: 3proxy
