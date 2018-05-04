@@ -1,4 +1,7 @@
 ---
+- name: Debug
+  debug: var="mount_volumes"
+  tags: 3proxy
 
 - name: Run a 3proxy-telegram container with default parameters
   docker_container:
@@ -13,7 +16,7 @@
     env:
       - USER: "{{ def_user }}"
       - PASSWORD: "{{ def_password }}"
-  when: mount_volumes == "no"
+  when: mount_volumes is "no"
   tags: 3proxy
 
 - name: Run a 3proxy-telegram container with external configuration
@@ -32,5 +35,5 @@
     env:
       - USER: "{{ def_user }}"
       - PASSWORD: "{{ def_password }}"
-  when: mount_volumes == "yes"
+  when: mount_volumes is "yes"
   tags: 3proxy
