@@ -3,7 +3,7 @@
   debug: var="mount_volumes"
   tags: 3proxy
 
-- name: Run a 3proxy-telegram container with default parameters
+- name: "Run a {{ container_name }} container with default parameters"
   docker_container:
     name: "{{ container_name }}"
     state: started
@@ -19,7 +19,7 @@
   when: not mount_volumes
   tags: 3proxy
 
-- name: Run a 3proxy-telegram container with external configuration
+- name: "Run a {{ container_name }} container with external configuration"
   docker_container:
     name: "{{ container_name }}"
     state: started
@@ -28,7 +28,7 @@
     pull: true
     image: "{{ image_name }}:{{ image_tag }}"
     published_ports:
-      - "{{ ansible_default_ipv4 }}:{{ exposed_port_ext }}:{{ exposed_port_int }}/{{ exposed_port_proto }}"
+      - "{{ exposed_port_ext }}:{{ exposed_port_int }}/{{ exposed_port_proto }}"
     volumes:
       - "{{ cfg_volume }}"
       - "{{ log_volume }}"
