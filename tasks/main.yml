@@ -14,6 +14,7 @@
       - USER: "{{ def_user }}"
       - PASSWORD: "{{ def_password }}"
   when: volumes == "no"
+  tags: 3proxy
 
 - name: Run a 3proxy-telegram container with external configuration
   docker_container:
@@ -32,3 +33,4 @@
       - USER: "{{ def_user }}"
       - PASSWORD: "{{ def_password }}"
   when: volumes == "yes"
+  tags: 3proxy
