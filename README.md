@@ -3,8 +3,7 @@ generic.telegram-proxy-deploy
 
 =========
 
-Ansible-role for deploy dockerized 3proxy Soxks-proxy server for
-use with Telegram Messenger.
+Ansible-role for deploy dockerized 3proxy Socks-proxy server for use with Telegram Messenger.
 
 Requirements
 ------------

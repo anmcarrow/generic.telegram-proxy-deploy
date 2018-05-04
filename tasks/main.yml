@@ -1,0 +1,34 @@
+---
+
+- name: Run a 3proxy-telegram container with default parameters
+  docker_container:
+    name: "{{ container_name }}"
+    state: present
+    recreate: true
+    restart_policy: "{{ restart_if }}"
+    pull: true
+    image: "{{ image_name }}:{{ image_tag }}"
+    published_ports:
+      - "{{ exposed_port_int }}:{{ exposed_port_ext }}"
+    env:
+      - USER: "{{ def_user }}"
+      - PASSWORD: "{{ def_password }}"
+  when: volumes == "no"
+
+- name: Run a 3proxy-telegram container with external configuration
+  docker_container:
+    name: "{{ container_name }}"
+    state: present
+    recreate: true
+    restart_policy: "{{ restart_if }}"
+    pull: true
+    image: "{{ image_name }}:{{ image_tag }}"
+    published_ports:
+      - "{{ exposed_port_int }}:{{ exposed_port_ext }}"
+    volumes:
+      - "{{ cfg_volume }}"
+      - "{{ log_volume }}"
+    env:
+      - USER: "{{ def_user }}"
+      - PASSWORD: "{{ def_password }}"
+  when: volumes == "yes"

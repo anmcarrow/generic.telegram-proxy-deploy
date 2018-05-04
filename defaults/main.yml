@@ -1,0 +1,15 @@
+---
+
+container_name: 3proxy-tg
+image_name: beshkenadze/tg-3proxy-docker
+image_tag: latest
+exposed_port_int: 3128
+exposed_port_ext: 45618
+restart_if: always
+
+def_user: proxy
+def_password: looPa9kuo9oohuog6moolo
+
+volumes: no
+cfg_volume: /etc/3proxy.cfg:/3proxy.cfg
+log_volume: /var/log/:/var/log/
