@@ -6,7 +6,7 @@
 - name: Run a 3proxy-telegram container with default parameters
   docker_container:
     name: "{{ container_name }}"
-    state: present
+    state: started
     recreate: true
     restart_policy: "{{ restart_if }}"
     pull: true
