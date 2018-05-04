@@ -16,7 +16,7 @@
     env:
       - USER: "{{ def_user }}"
       - PASSWORD: "{{ def_password }}"
-  when: mount_volumes == 0
+  when: not mount_volumes
   tags: 3proxy
 
 - name: Run a 3proxy-telegram container with external configuration
@@ -35,5 +35,5 @@
     env:
       - USER: "{{ def_user }}"
       - PASSWORD: "{{ def_password }}"
-  when: mount_volumes == 1
+  when: mount_volumes
   tags: 3proxy
