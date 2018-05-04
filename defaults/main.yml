@@ -5,6 +5,7 @@ image_name: beshkenadze/tg-3proxy-docker
 image_tag: latest
 exposed_port_int: 3128
 exposed_port_ext: 45618
+exposed_port_proto: tcp
 restart_if: always
 
 def_user: proxy
