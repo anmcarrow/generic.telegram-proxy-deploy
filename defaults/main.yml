@@ -1,7 +1,7 @@
 ---
 
 container_name: 3proxy-tg
-image_name: beshkenadze/tg-3proxy-docker
+image_name: anmcarrow/3proxy-tg
 image_tag: latest
 exposed_port_int: 3128
 exposed_port_ext: 45618
