@@ -1,8 +1,4 @@
 ---
-- name: Debug
-  debug: var="mount_volumes"
-  tags: 3proxy
-
 - name: "Run a {{ container_name }} container with default parameters"
   docker_container:
     name: "{{ container_name }}"
@@ -11,8 +7,12 @@
     restart_policy: "{{ restart_if }}"
     pull: true
     image: "{{ image_name }}:{{ image_tag }}"
+    exposed_ports:
+      - "{{ exposed_port1 }}:{{ exposed_port1 }}"
+      - "{{ exposed_port2 }}:{{ exposed_port2 }}"
     published_ports:
-      - "{{ exposed_port_ext }}:{{ exposed_port_int }}/{{ exposed_port_proto }}"
+      - "{{ exposed_port1 }}:{{ exposed_port1 }}"
+      - "{{ exposed_port2 }}:{{ exposed_port2 }}"
     env:
       USER: "{{ def_user }}"
       PASSWORD: "{{ def_password }}"
@@ -27,8 +27,12 @@
     restart_policy: "{{ restart_if }}"
     pull: true
     image: "{{ image_name }}:{{ image_tag }}"
+    exposed_ports:
+      - "{{ exposed_port1 }}:{{ exposed_port1 }}"
+      - "{{ exposed_port2 }}:{{ exposed_port2 }}"
     published_ports:
-      - "{{ exposed_port_ext }}:{{ exposed_port_int }}/{{ exposed_port_proto }}"
+      - "{{ exposed_port1 }}:{{ exposed_port1 }}"
+      - "{{ exposed_port2 }}:{{ exposed_port2 }}"
     volumes:
       - "{{ cfg_volume }}"
       - "{{ log_volume }}"

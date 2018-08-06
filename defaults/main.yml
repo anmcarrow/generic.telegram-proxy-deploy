@@ -3,8 +3,8 @@
 container_name: 3proxy-tg
 image_name: anmcarrow/3proxy-tg
 image_tag: latest
-exposed_port_int: 3128
-exposed_port_ext: 45618
+exposed_port1: 47864
+exposed_port2: 45618
 exposed_port_proto: tcp
 restart_if: always
 
